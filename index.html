@@ -1,1 +1,110 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Sortable Table</title>
+
+<style>
+  table { border-collapse: collapse; width: 100%; }
+  th, td { border: 1px solid black; padding: 6px; }
+  th { cursor: pointer; background: #eee; }
+</style>
+
+</head>
+<body>
+
+<table id="myTable">
+  <tr>
+    <th onclick="sortTable(0)">Site ▲▼</th>
+    <th onclick="sortTable(1)">Link ▲▼</th>
+    <th onclick="sortTable(2)">Explanation ▲▼</th>
+  </tr>
+
+  <!-- 50 rows -->
+  <tr><td>Zeta</td><td>Alpha</td><td>Gamma</td></tr>
+  <tr><td>Beta</td><td>Delta</td><td>Epsilon</td></tr>
+  <tr><td>Omega</td><td>Lambda</td><td>Kappa</td></tr>
+  <tr><td>Alpha</td><td>Zeta</td><td>Beta</td></tr>
+  <tr><td>Delta</td><td>Gamma</td><td>Alpha</td></tr>
+  <tr><td>Epsilon</td><td>Beta</td><td>Zeta</td></tr>
+  <tr><td>Gamma</td><td>Omega</td><td>Delta</td></tr>
+  <tr><td>Kappa</td><td>Alpha</td><td>Lambda</td></tr>
+  <tr><td>Lambda</td><td>Epsilon</td><td>Omega</td></tr>
+  <tr><td>Theta</td><td>Kappa</td><td>Beta</td></tr>
+
+  <tr><td>Rho</td><td>Sigma</td><td>Tau</td></tr>
+  <tr><td>Phi</td><td>Chi</td><td>Psi</td></tr>
+  <tr><td>Xi</td><td>Nu</td><td>Mu</td></tr>
+  <tr><td>Iota</td><td>Eta</td><td>Zeta</td></tr>
+  <tr><td>Mu</td><td>Xi</td><td>Chi</td></tr>
+  <tr><td>Nu</td><td>Phi</td><td>Rho</td></tr>
+  <tr><td>Chi</td><td>Psi</td><td>Sigma</td></tr>
+  <tr><td>Psi</td><td>Theta</td><td>Eta</td></tr>
+  <tr><td>Sigma</td><td>Iota</td><td>Nu</td></tr>
+  <tr><td>Tau</td><td>Mu</td><td>Xi</td></tr>
+
+  <tr><td>Aaa</td><td>Bbb</td><td>Ccc</td></tr>
+  <tr><td>Ddd</td><td>Eee</td><td>Fff</td></tr>
+  <tr><td>Ggg</td><td>Hhh</td><td>Iii</td></tr>
+  <tr><td>Jjj</td><td>Kkk</td><td>Lll</td></tr>
+  <tr><td>Mmm</td><td>Nnn</td><td>Ooo</td></tr>
+  <tr><td>Ppp</td><td>Qqq</td><td>Rrr</td></tr>
+  <tr><td>Sss</td><td>Ttt</td><td>Uuu</td></tr>
+  <tr><td>Vvv</td><td>Www</td><td>Xxx</td></tr>
+  <tr><td>Yyy</td><td>Zzz</td><td>Aaa</td></tr>
+  <tr><td>Bbb</td><td>Ccc</td><td>Ddd</td></tr>
+
+  <tr><td>Eee</td><td>Fff</td><td>Ggg</td></tr>
+  <tr><td>Hhh</td><td>Iii</td><td>Jjj</td></tr>
+  <tr><td>Kkk</td><td>Lll</td><td>Mmm</td></tr>
+  <tr><td>Nnn</td><td>Ooo</td><td>Ppp</td></tr>
+  <tr><td>Qqq</td><td>Rrr</td><td>Sss</td></tr>
+  <tr><td>Ttt</td><td>Uuu</td><td>Vvv</td></tr>
+  <tr><td>Www</td><td>Xxx</td><td>Yyy</td></tr>
+  <tr><td>Zzz</td><td>Aaa</td><td>Bbb</td></tr>
+  <tr><td>Ccc</td><td>Ddd</td><td>Eee</td></tr>
+  <tr><td>Fff</td><td>Ggg</td><td>Hhh</td></tr>
+
+  <tr><td>Iii</td><td>Jjj</td><td>Kkk</td></tr>
+  <tr><td>Lll</td><td>Mmm</td><td>Nnn</td></tr>
+  <tr><td>Ooo</td><td>Ppp</td><td>Qqq</td></tr>
+  <tr><td>Rrr</td><td>Sss</td><td>Ttt</td></tr>
+  <tr><td>Uuu</td><td>Vvv</td><td>Www</td></tr>
+  <tr><td>Xxx</td><td>Yyy</td><td>Zzz</td></tr>
+
+</table>
+
+<script>
+function sortTable(n) {
+  let table = document.getElementById("myTable");
+  let switching = true;
+  let dir = "asc";
+
+  while (switching) {
+    switching = false;
+    let rows = table.rows;
+
+    for (let i = 1; i < rows.length - 1; i++) {
+      let x = rows[i].getElementsByTagName("TD")[n];
+      let y = rows[i + 1].getElementsByTagName("TD")[n];
+
+      if ((dir === "asc" && x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) ||
+          (dir === "desc" && x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase())) {
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+        break;
+      }
+    }
+
+    if (!switching && dir === "asc") {
+      dir = "desc";
+      switching = true;
+    }
+  }
+}
+</script>
+
+</body>
+</html>
+
