@@ -2,23 +2,30 @@
 <table id="sortableTable" style="border-collapse: collapse; width: 100.016%; height: 1990.28px;" border="1">
     <tbody>
         <tr style="background-color: #b7a99a; height: 52.8438px;">
-<td onclick="sortTable(0,'num', this)" style="cursor:pointer;">
+
+<td style="cursor:default;">
   <strong>
     <span style="font-size: 8pt;">
-      Original<br>Order <span class="arrow">⇅</span>
+      Original<br>Order
+      <span class="arrow" onclick="sortTable(0,'num','asc')">▲</span>
+      <span class="arrow" onclick="sortTable(0,'num','desc')">▼</span>
     </span>
   </strong>
-</td>    
-<td onclick="sortTable(1,'text', this)" style="cursor:pointer;">
+</td>
+<td>
   <strong>
-    Site <span class="arrow">⇅</span>
+    Site
+    <span class="arrow" onclick="sortTable(1,'text','asc')">▲</span>
+    <span class="arrow" onclick="sortTable(1,'text','desc')">▼</span>
   </strong>
 </td>
             <td style="width: 33.7567%;"><strong>Description</strong></td>
             <td style="width: 41.3742%; height: 52.8438px;"><strong>Link</strong></td>
-<td onclick="sortTable(4,'text', this)" style="cursor:pointer;">
+<td>
   <strong>
-    SubCategory <span class="arrow">⇅</span>
+    SubCategory
+    <span class="arrow" onclick="sortTable(4,'text','asc')">▲</span>
+    <span class="arrow" onclick="sortTable(4,'text','desc')">▼</span>
   </strong>
 </td>
         </tr>
@@ -374,18 +381,12 @@
     </tbody>
 </table>
 <script>
-let sortDirection = {};
-
-function sortTable(column, type, headerCell) {
+function sortTable(column, type, direction) {
     const table = document.getElementById("sortableTable");
     const tbody = table.tBodies[0];
     let rows = Array.from(tbody.rows).slice(1);
 
-    // reset all arrows
-    document.querySelectorAll(".arrow").forEach(a => a.textContent = " ⇅");
-
-    sortDirection[column] = !sortDirection[column];
-    const asc = sortDirection[column];
+    const asc = direction === "asc";
 
     rows.sort((a, b) => {
         let A = a.cells[column].innerText.trim().toLowerCase();
@@ -399,12 +400,6 @@ function sortTable(column, type, headerCell) {
     });
 
     rows.forEach(row => tbody.appendChild(row));
-
-    // add arrow to active column
-    const arrow = headerCell.querySelector(".arrow");
-    if (arrow) {
-        arrow.textContent = asc ? " ▲" : " ▼";
-    }
 }
 </script>
 </body>
