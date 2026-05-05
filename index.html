@@ -3,15 +3,23 @@
     <tbody>
         <tr style="background-color: #b7a99a; height: 52.8438px;">
 <td onclick="sortTable(0,'num', this)" style="cursor:pointer;">
-  <strong><span style="font-size: 8pt;">Original<br />Order <span class="arrow"></span></span></strong>
-</td>       
+  <strong>
+    <span style="font-size: 8pt;">
+      Original<br>Order <span class="arrow">⇅</span>
+    </span>
+  </strong>
+</td>    
 <td onclick="sortTable(1,'text', this)" style="cursor:pointer;">
-  <strong>Site <span class="arrow"></span></strong>
+  <strong>
+    Site <span class="arrow">⇅</span>
+  </strong>
 </td>
             <td style="width: 33.7567%;"><strong>Description</strong></td>
             <td style="width: 41.3742%; height: 52.8438px;"><strong>Link</strong></td>
 <td onclick="sortTable(4,'text', this)" style="cursor:pointer;">
-  <strong>SubCategory <span class="arrow"></span></strong>
+  <strong>
+    SubCategory <span class="arrow">⇅</span>
+  </strong>
 </td>
         </tr>
         <tr style="height: 49.3958px;">
@@ -374,7 +382,7 @@ function sortTable(column, type, headerCell) {
     let rows = Array.from(tbody.rows).slice(1);
 
     // reset all arrows
-    document.querySelectorAll(".arrow").forEach(a => a.textContent = "");
+    document.querySelectorAll(".arrow").forEach(a => a.textContent = " ⇅");
 
     sortDirection[column] = !sortDirection[column];
     const asc = sortDirection[column];
