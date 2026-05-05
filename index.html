@@ -1,11 +1,17 @@
-<table style="border-collapse: collapse; width: 100.016%; height: 1990.28px;" border="1">
+<table id="sortableTable" style="border-collapse: collapse; width: 100.016%; height: 1990.28px;" border="1">
     <tbody>
         <tr style="background-color: #b7a99a; height: 52.8438px;">
-            <td style="width: 2.4282%; height: 52.8438px;"><strong><span style="font-size: 8pt;">Original<br />Order</span></strong></td>
-            <td style="width: 11.3792%; height: 52.8438px;"><strong>Site</strong></td>
+<td onclick="sortTable(0,'num')" style="width: 2.4282%; height: 52.8438px; cursor:pointer;">
+  <strong><span style="font-size: 8pt;">Original<br />Order</span></strong>
+</td>         
+<td onclick="sortTable(1,'text')" style="width: 11.3792%; height: 52.8438px; cursor:pointer;">
+  <strong>Site</strong>
+</td>
             <td style="width: 33.7567%;"><strong>Description</strong></td>
             <td style="width: 41.3742%; height: 52.8438px;"><strong>Link</strong></td>
-            <td style="width: 11.0463%; height: 52.8438px;"><strong>SubCategory</strong></td>
+<td onclick="sortTable(4,'text')" style="width: 11.0463%; height: 52.8438px; cursor:pointer;">
+  <strong>SubCategory</strong>
+</td>
         </tr>
         <tr style="height: 49.3958px;">
             <td style="width: 2.4282%; background-color: #b8dde1; height: 49.3958px;"><span style="font-size: 8pt;">&nbsp;1</span></td>
@@ -358,3 +364,34 @@
         </tr>
     </tbody>
 </table>
+
+<script>
+let sortDirection = {};
+
+function sortTable(column, type) {
+    const table = document.getElementById("sortableTable");
+    const tbody = table.tBodies[0];
+
+    // skip header row
+    let rows = Array.from(tbody.rows).slice(1);
+
+    // toggle ascending / descending
+    sortDirection[column] = !sortDirection[column];
+    const asc = sortDirection[column];
+
+    rows.sort((a, b) => {
+        let A = a.cells[column].innerText.trim().toLowerCase();
+        let B = b.cells[column].innerText.trim().toLowerCase();
+
+        if (type === "num") {
+            return asc ? Number(A) - Number(B) : Number(B) - Number(A);
+        }
+
+        return asc ? A.localeCompare(B) : B.localeCompare(A);
+    });
+
+    // reattach rows in new order
+    rows.forEach(row => tbody.appendChild(row));
+}
+</script>
+
