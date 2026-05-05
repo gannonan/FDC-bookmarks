@@ -6,104 +6,77 @@
 <title>Important Websites</title>
 
 <style>
-  body { font-family: Arial; padding: 20px; }
-  table { border-collapse: collapse; width: 100%; }
-  th, td { border: 1px solid #ccc; padding: 8px; }
-  th { cursor: pointer; background: #f2f2f2; }
-
-  /* Color categories (based on your Excel groups) */
-  .employee { background: #f8d7da; }
-  .resource { background: #d1ecf1; }
-  .support { background: #fff3cd; }
-  .website { background: #d4edda; }
-  .safety { background: #fce5cd; }
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+td, th {
+  border: 1px solid #000;
+  padding: 6px;
+}
+th {
+  cursor: pointer;
+  background-color: #b7a99a;
+}
 </style>
 </head>
 
 <body>
 
-<h2>Important Websites</h2>
-
-<button onclick="resetTable()">Reset Order</button>
-
 <table id="myTable">
-<thead>
-<tr>
-  <th onclick="sortTable(0,'num')">Original Order</th>
-  <th onclick="sortTable(1,'text')">Site</th>
-  <th>Description</th>
-  <th>Link</th>
-  <th onclick="sortTable(4,'text')">Sub Category</th>
-</tr>
-</thead>
-
 <tbody>
 
-<!-- ✅ ALL ROWS INCLUDED -->
+<tr style="background-color: #b7a99a;">
+<td onclick="sortTable(0,'num')"><strong><span style="font-size: 8pt;">Original<br>Order</span></strong></td>
+<td onclick="sortTable(1,'text')"><strong>Site</strong></td>
+<td><strong>Description</strong></td>
+<td><strong>Link</strong></td>
+<td onclick="sortTable(4,'text')"><strong>SubCategory</strong></td>
+</tr>
 
-<tr><td>1</td><td>EmpCenter</td><td>Timesheet system</td><td><a href="http://mytime.oregonstate.edu/" target="_blank">Open</a></td><td class="employee">employee</td></tr>
-<tr><td>2</td><td>MyOSU</td><td>Employee info</td><td><a href="https://my.oregonstate.edu/" target="_blank">Open</a></td><td class="employee">employee</td></tr>
-<tr><td>3</td><td>DEV Staff Portal</td><td>Staff portal</td><td><a href="https://ecampus.oregonstate.edu/staff/portal/" target="_blank">Open</a></td><td>contacts</td></tr>
-<tr><td>4</td><td>OSU Libraries Directory</td><td>Directory</td><td><a href="https://library.oregonstate.edu/directory" target="_blank">Open</a></td><td>contacts</td></tr>
+<tr><td style="background-color:#b8dde1;">1</td><td style="background-color:#b8dde1;"><strong>EmpCenter</strong></td><td><strong>EmpCenter</strong> houses your timesheet.</td><td style="background-color:#b8dde1;"><a href="http://mytime.oregonstate.edu" target="_blank">http://mytime.oregonstate.edu</a></td><td>employee</td></tr>
+<tr><td style="background-color:#b8dde1;">2</td><td style="background-color:#b8dde1;"><strong>MyOSU</strong></td><td>Employee info and pay stubs.</td><td style="background-color:#b8dde1;"><a href="https://my.oregonstate.edu/" target="_blank">https://my.oregonstate.edu/</a></td><td>employee</td></tr>
+<tr><td style="background-color:#b8dde1;">3</td><td style="background-color:#b8dde1;"><strong>DEV Staff Portal</strong></td><td>Staff portal.</td><td style="background-color:#b8dde1;"><a href="https://ecampus.oregonstate.edu/staff/portal/" target="_blank">Portal</a></td><td>contacts</td></tr>
+<tr><td style="background-color:#b8dde1;">4</td><td style="background-color:#b8dde1;"><strong>OSU Libraries Directory</strong></td><td>Directory.</td><td style="background-color:#b8dde1;"><a href="https://library.oregonstate.edu/directory" target="_blank">Directory</a></td><td>contacts</td></tr>
 
-<tr><td>5</td><td>Canvas</td><td>LMS system</td><td><a href="https://canvas.oregonstate.edu/" target="_blank">Open</a></td><td class="resource">resource</td></tr>
-<tr><td>6</td><td>Box</td><td>Shared storage</td><td><a href="https://uit.oregonstate.edu/box" target="_blank">Open</a></td><td class="resource">resource</td></tr>
-<tr><td>7</td><td>MS 365</td><td>Microsoft tools</td><td><a href="https://uit.oregonstate.edu/office365" target="_blank">Open</a></td><td class="resource">resource</td></tr>
-<tr><td>8</td><td>Asana</td><td>Task management</td><td><a href="https://app.asana.com/-/login" target="_blank">Open</a></td><td class="resource">resource</td></tr>
-<tr><td>9</td><td>DocuSign</td><td>Sign docs</td><td><a href="https://technology.oregonstate.edu/services/docusign" target="_blank">Open</a></td><td class="resource">resource</td></tr>
+<tr><td style="background-color:#b8dde1;">5</td><td style="background-color:#b8dde1;"><strong>Canvas</strong></td><td>LMS system.</td><td style="background-color:#b8dde1;"><a href="https://canvas.oregonstate.edu/" target="_blank">Canvas</a></td><td>resource</td></tr>
+<tr><td style="background-color:#b8dde1;">6</td><td style="background-color:#b8dde1;"><strong>Box</strong></td><td>File storage.</td><td style="background-color:#b8dde1;"><a href="https://uit.oregonstate.edu/box" target="_blank">Box</a></td><td>resource</td></tr>
+<tr><td style="background-color:#b8dde1;">7</td><td style="background-color:#b8dde1;"><strong>MS 365</strong></td><td>Microsoft tools.</td><td style="background-color:#b8dde1;"><a href="https://uit.oregonstate.edu/office365" target="_blank">M365</a></td><td>resource</td></tr>
+<tr><td style="background-color:#b8dde1;">8</td><td style="background-color:#b8dde1;"><strong>Asana</strong></td><td>Task management.</td><td style="background-color:#b8dde1;"><a href="https://app.asana.com" target="_blank">Asana</a></td><td>resource</td></tr>
+<tr><td style="background-color:#b8dde1;">9</td><td style="background-color:#b8dde1;"><strong>DocuSign</strong></td><td>Sign docs.</td><td style="background-color:#b8dde1;"><a href="https://technology.oregonstate.edu/services/docusign" target="_blank">DocuSign</a></td><td>resource</td></tr>
 
-<tr><td>10</td><td>Qualtrics</td><td>Survey system</td><td><a href="https://technology.oregonstate.edu/services/qualtrics" target="_blank">Open</a></td><td class="resource">resource</td></tr>
-<tr><td>11</td><td>SharePoint</td><td>Collaboration</td><td><a href="https://technology.oregonstate.edu/services/sharepoint" target="_blank">Open</a></td><td class="resource">resource</td></tr>
-<tr><td>12</td><td>Copilot</td><td>Microsoft AI</td><td><a href="https://technology.oregonstate.edu/services/copilot" target="_blank">Open</a></td><td class="resource">resource</td></tr>
+<tr><td style="background-color:#b8dde1;">10</td><td style="background-color:#b8dde1;"><strong>Qualtrics</strong></td><td>Survey system.</td><td style="background-color:#b8dde1;"><a href="https://technology.oregonstate.edu/services/qualtrics" target="_blank">Qualtrics</a></td><td>resource</td></tr>
+<tr><td style="background-color:#b8dde1;">11</td><td style="background-color:#b8dde1;"><strong>SharePoint</strong></td><td>Collaboration platform.</td><td style="background-color:#b8dde1;"><a href="https://technology.oregonstate.edu/services/sharepoint" target="_blank">SharePoint</a></td><td>resource</td></tr>
+<tr><td style="background-color:#b8dde1;">12</td><td style="background-color:#b8dde1;"><strong>Copilot</strong></td><td>Microsoft AI.</td><td style="background-color:#b8dde1;"><a href="https://technology.oregonstate.edu/services/copilot" target="_blank">Copilot</a></td><td>resource</td></tr>
 
-<tr class="support"><td>14</td><td>CN Service Desk</td><td>Tech requests</td><td><a href="https://mysupport.oregonstate.edu/" target="_blank">Open</a></td><td class="support">support</td></tr>
-<tr class="support"><td>15</td><td>ScreenConnect</td><td>Remote support</td><td><a href="https://support.oregonstate.edu/" target="_blank">Open</a></td><td class="support">support</td></tr>
-
-<tr><td>17</td><td>Benny Buy</td><td>Purchasing</td><td><a href="https://fa.oregonstate.edu/eProcurement" target="_blank">Open</a></td><td>purchasing</td></tr>
-<tr><td>18</td><td>LinkedIn Learning</td><td>Training</td><td><a href="https://hr.oregonstate.edu/training/linkedin-learning" target="_blank">Open</a></td><td>prof dev</td></tr>
-<tr><td>19</td><td>OSU Workshops</td><td>Workshops</td><td><a href="https://hr.oregonstate.edu/workshops-open-registration" target="_blank">Open</a></td><td>prof dev</td></tr>
-
-<tr><td>25</td><td>Ecampus</td><td>Homepage</td><td><a href="http://ecampus.oregonstate.edu/" target="_blank">Open</a></td><td class="website">website</td></tr>
-<tr><td>26</td><td>Educational Ventures</td><td>Homepage</td><td><a href="https://educationalventures.oregonstate.edu/" target="_blank">Open</a></td><td class="website">website</td></tr>
-
-<tr class="safety"><td>30</td><td>Library Safety Wiki</td><td>Emergency info</td><td><a href="https://osulp.atlassian.net/wiki/" target="_blank">Open</a></td><td class="safety">safety</td></tr>
-
-<tr><td>41</td><td>GitHub</td><td>Create web pages</td><td><a href="https://github.com/" target="_blank">Open</a></td><td>website builder</td></tr>
+<tr><td style="background-color:#b8dde1;">41</td><td style="background-color:#b8dde1;"><strong>GitHub</strong></td><td>Create webpages.</td><td style="background-color:#b8dde1;"><a href="https://github.com/" target="_blank">GitHub</a></td><td>website builder</td></tr>
 
 </tbody>
 </table>
 
 <script>
-let originalRows = [];
-
-window.onload = () => {
-  const tbody = document.querySelector("#myTable tbody");
-  originalRows = Array.from(tbody.rows);
-};
+let sortState = {};
 
 function sortTable(col, type) {
-  const tbody = document.querySelector("#myTable tbody");
-  let rows = Array.from(tbody.rows);
+  const table = document.getElementById("myTable");
+  const tbody = table.tBodies[0];
+  let rows = Array.from(tbody.rows).slice(1);
 
-  let asc = tbody.getAttribute("data-sort") !== "asc";
-  tbody.setAttribute("data-sort", asc ? "asc" : "desc");
+  sortState[col] = !sortState[col];
+  const asc = sortState[col];
 
   rows.sort((a, b) => {
-    let A = a.cells[col].innerText.toLowerCase();
-    let B = b.cells[col].innerText.toLowerCase();
+    let A = a.cells[col].innerText.trim().toLowerCase();
+    let B = b.cells[col].innerText.trim().toLowerCase();
 
-    if (type === "num") return asc ? A - B : B - A;
+    if (type === "num") {
+      return asc ? Number(A) - Number(B) : Number(B) - Number(A);
+    }
+
     return asc ? A.localeCompare(B) : B.localeCompare(A);
   });
 
-  tbody.innerHTML = "";
-  rows.forEach(r => tbody.appendChild(r));
-}
-
-function resetTable() {
-  const tbody = document.querySelector("#myTable tbody");
-  tbody.innerHTML = "";
-  originalRows.forEach(r => tbody.appendChild(r));
+  rows.forEach(row => tbody.appendChild(row));
 }
 </script>
 
